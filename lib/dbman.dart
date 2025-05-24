@@ -23,6 +23,7 @@ class DBMan {
       'priceperunit': price,
       'price-paid': pricepaid,
       'isChecked': false,
+      'DateChecked': null,
     });
   }
 
@@ -30,13 +31,25 @@ class DBMan {
     db.collection('items').doc(id).delete();
   }
   void updateItem(String id, String name, double quantity, double price, double pricepaid, bool isChecked) {
-    db.collection('items').doc(id).update({
-      'item': name,
-      'quantity': quantity,
-      'priceperunit': price,
-      'price-paid': pricepaid,
-      'isChecked': isChecked,
-    });
+    if (isChecked == true) {
+      db.collection('items').doc(id).update({
+        'item': name,
+        'quantity': quantity,
+        'priceperunit': price,
+        'price-paid': pricepaid,
+        'isChecked': isChecked,
+        'DateChecked': DateTime.now()
+      });
+    } else {
+      db.collection('items').doc(id).update({
+        'item': name,
+        'quantity': quantity,
+        'priceperunit': price,
+        'price-paid': pricepaid,
+        'isChecked': isChecked,
+        'DateChecked': null,
+      });
+    }
   }
 
   Future<List<Map<String, dynamic>>> getAllItems() async {

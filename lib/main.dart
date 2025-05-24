@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Shopping list'),
+      home: const MyHomePage(title: 'Shopping app | Seller side'),
     );
   }
 }
@@ -52,6 +52,16 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     allitems = dbman.getAllItems();
+  }
+
+  bool isOneDayLater(DateTime date) {
+    final now = DateTime.now();
+    final difference = date.difference(now);
+    if (difference.inDays == 1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   double getTotal(String quantityText, String priceText) {
