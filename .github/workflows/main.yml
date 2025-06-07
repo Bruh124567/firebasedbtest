@@ -1,4 +1,4 @@
-name: Build Android (Unsigned)
+name: Build Android (dev branch)
 
 on:
   workflow_dispatch
