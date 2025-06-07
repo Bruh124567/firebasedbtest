@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-// Basic Manager for Firestore
+// Basic Manager for Firestore (Customize to your liking)
 // by @Bruh124567
 
 
