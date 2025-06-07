@@ -203,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         });
                       }),
                     ),
-                  title: Text('Name: ${item['item'] ?? ''}'),
+                  title: Text(item['item'] ?? 'Unnamed Item'),
                   subtitle: Text('Quantity: ${item['quantity'] ?? ''} | Price: ${item['priceperunit'] ?? ''} | Total: ${item['price-paid'] ?? ''}'),
                   trailing: IconButton(
                     icon: const Icon(Icons.delete),
