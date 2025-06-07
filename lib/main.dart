@@ -76,6 +76,12 @@ class _MyHomePageState extends State<MyHomePage> {
     return quantity * price;
   }
 
+  void reload(){
+    setState(() {
+      allitems = dbman.getAllItems();
+    });
+  }
+
   void AddItemsWithRizz(context) {
     final TextEditingController nameController = TextEditingController();
     final TextEditingController quantityController = TextEditingController();
@@ -214,12 +220,27 @@ class _MyHomePageState extends State<MyHomePage> {
           }
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (() {
-          AddItemsWithRizz(context);   
-        }),
-        tooltip: 'Add Item',
-        child: const Icon(Icons.add),),
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FloatingActionButton(
+            mini: true,
+            onPressed: () {
+              reload();
+            },
+            tooltip: 'Refresh',
+            child: const Icon(Icons.refresh),
+          ),
+          const SizedBox(height: 16), // Space between buttons
+          FloatingActionButton(
+            onPressed: (() {
+              AddItemsWithRizz(context);   
+            }),
+            tooltip: 'Add Item',
+            child: const Icon(Icons.add),
+          ),
+        ],
+      ),
     );
   }
 }
