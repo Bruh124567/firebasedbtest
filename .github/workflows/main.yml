@@ -3,10 +3,7 @@ name: Build Android (Unsigned)
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - dev
 
 jobs:
   build:
