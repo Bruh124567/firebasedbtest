@@ -1,5 +1,10 @@
 name: Build Android (Unsigned)
 
+on:
+  pull_request:
+    branches:
+      - dev
+
 jobs:
   build:
     runs-on: ubuntu-latest # Or macos-latest if you prefer macOS for building
